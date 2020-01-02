@@ -24,4 +24,4 @@ You will have to build a REST API (Python and Flask are the preferrable language
 - Docker;
 - Flask;
 - NoSQL;
-- Karma commit; 
+- [Karma commit](http://karma-runner.github.io/4.0/dev/git-commit-msg.html); 
