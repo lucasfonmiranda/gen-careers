@@ -1,6 +1,6 @@
 # Challenge: Payment System
 
-You will have to build a REST API (Python and Flask are the preferrable language and runtime environment, but you may build it as you wish) that will integrate two different payment services (like building a gateway that communicate with stripe and paypal).
+You will have to build a REST API (Javascript and Nodejs are the preferrable language and runtime environment, but you may build it as you wish) that will integrate two different payment services (like building a gateway that communicate with stripe and paypal).
 
 ## API requirements:
  - A route to create Clients;
@@ -18,10 +18,10 @@ You will have to build a REST API (Python and Flask are the preferrable language
 
 ## Expected
 - Microservices;
-- Python;
+- Nodejs;
 
 ## Better if
 - Docker;
-- Flask;
+- NodeJs;
 - NoSQL;
 - [Karma commit](http://karma-runner.github.io/4.0/dev/git-commit-msg.html); 
