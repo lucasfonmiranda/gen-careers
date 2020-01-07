@@ -28,6 +28,24 @@ export default createGlobalStyle`
     cursor: pointer;
   }
 
+  input {
+    background-color: #fff;
+    border: 2px solid #fa4251;
+    border-radius: .5rem;
+    margin: 1rem;
+    padding: .5rem;
+    width: 50%;
+  }
+
+  select {
+    background-color: #fff;
+    border: 2px solid #fa4251;
+    border-radius: .5rem;
+    margin: 1rem;
+    padding: .5rem;
+    width: 50%;
+  }
+
   table {
     background-color: #fff;
     border-collapse: collapse;

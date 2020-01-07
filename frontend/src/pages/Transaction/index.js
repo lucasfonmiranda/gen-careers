@@ -7,23 +7,46 @@ import { Container } from './styles';
 
 export default function Transaction() {
   const [transactions, setTransactions] = useState([]);
+  const [name, setName] = useState('');
+  const [paymentService, setPaymentService] = useState('');
 
-  async function loadTransactions(name) {
+  async function loadTransactions(nameInput, payServ) {
     const { data } = await api.get('/transactions', {
-      name,
+      params: {
+        name: nameInput,
+        ps: payServ,
+      },
     });
-
     setTransactions(data);
   }
 
   useEffect(() => {
-    loadTransactions();
-  }, []);
+    loadTransactions(name, paymentService);
+  }, [name, paymentService]);
 
   return (
     <>
       <Header />
       <Container>
+        <input
+          type="text"
+          name="name"
+          value={name}
+          onChange={event => setName(event.target.value)}
+          placeholder="Digite um nome"
+        />
+        <p>Serviço de pagamento</p>
+        <select
+          name="payment_service"
+          onChange={event => setPaymentService(event.target.value)}
+        >
+          <option defaultChecked value="">
+            Todos
+          </option>
+          <option value="Mercado Pago">Mercado Pago</option>
+          <option value="Paypal">Paypal</option>
+          <option value="Stripe">Stripe</option>
+        </select>
         <table>
           <caption>Transactions</caption>
           <thead>
