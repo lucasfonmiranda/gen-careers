@@ -16,6 +16,8 @@ class TransactionController {
 
   async show(req, res) {
     const clientName = req.body.name;
+    const { payment_service } = req.body;
+
     const clients = await Client.find({
       name: new RegExp(clientName, 'i'),
     });
@@ -24,6 +26,7 @@ class TransactionController {
 
     const transactions = await Transaction.find({
       client_email: clientsEmails,
+      payment_service: payment_service || { $type: 'string' },
     });
 
     return res.json(transactions);
