@@ -22,6 +22,5 @@ You will have to build a REST API (Javascript and Nodejs are the preferrable lan
 
 ## Better if
 - Docker;
-- NodeJs;
 - NoSQL;
 - [Karma commit](http://karma-runner.github.io/4.0/dev/git-commit-msg.html); 
