@@ -3,13 +3,20 @@ import Client from '../schemas/Client';
 
 class ClientController {
   async index(req, res) {
-    try {
-      const clients = await Client.find();
+    const clientName = req.query.name;
+    const { page } = req.query || 1;
+    const { perPage } = req.query || 10;
 
-      res.json(clients);
-    } catch (err) {
-      res.status(500).json('Não foi possível buscar os Clientes.');
-    }
+    const clients = await Client.find({
+      name: new RegExp(clientName, 'i'),
+    })
+      .limit(Number(perPage))
+      .skip(perPage * page - perPage)
+      .sort({
+        name: 'asc',
+      });
+
+    res.json(clients);
   }
 
   async store(req, res) {

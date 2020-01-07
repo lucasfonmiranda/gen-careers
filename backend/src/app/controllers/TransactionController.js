@@ -5,18 +5,10 @@ import Client from '../schemas/Client';
 
 class TransactionController {
   async index(req, res) {
-    try {
-      const transactions = await Transaction.find({});
-
-      res.json(transactions);
-    } catch (err) {
-      res.status(500).json('Não foi possível buscar as transações.');
-    }
-  }
-
-  async show(req, res) {
-    const clientName = req.body.name;
-    const { payment_service } = req.body;
+    const clientName = req.query.name;
+    const payment_service = req.query.ps;
+    const { page } = req.query || 1;
+    const { perPage } = req.query || 10;
 
     const clients = await Client.find({
       name: new RegExp(clientName, 'i'),
@@ -27,7 +19,12 @@ class TransactionController {
     const transactions = await Transaction.find({
       client_email: clientsEmails,
       payment_service: payment_service || { $type: 'string' },
-    });
+    })
+      .limit(Number(perPage))
+      .skip(perPage * page - perPage)
+      .sort({
+        createdAt: 'desc',
+      });
 
     return res.json(transactions);
   }

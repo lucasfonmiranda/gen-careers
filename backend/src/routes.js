@@ -8,7 +8,6 @@ const routes = new Router();
 routes.get('/clients', ClientController.index);
 routes.post('/clients', ClientController.store);
 
-routes.get('/transactions', TransactionController.show);
 routes.get('/transactions', TransactionController.index);
 routes.post('/transactions', TransactionController.store);
 
