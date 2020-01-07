@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
+import { darken } from 'polished';
 
 export default createGlobalStyle`
   @import url('https://fonts.googleapis.com/css?family=Muli:400,700&display=swap');
@@ -24,23 +25,63 @@ export default createGlobalStyle`
     list-style: none;
   }
 
+  .pagination {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+
+    button {
+      margin-bottom: 1rem;
+    }
+  }
+
+  #goToTopButton {
+  background-color: #fa4251;background-color: #fa4251;
+  bottom: 20px;
+  color: white;
+  display: none;
+  outline: none;
+  position: fixed;
+  right: 20px;
+  z-index: 3;
+}
+
+
   button {
+    background-color: #fa4251;
+    border: none;
+    border-radius: .25rem;
+    color: #fff;
     cursor: pointer;
+    font-weight: bold;
+    margin: 0 1rem 2rem ;
+    padding: .5rem;
+
+      
+    &:hover {
+      background-color: ${darken(0.05, '#fa4251')};
+    }
   }
 
   input {
     background-color: #fff;
     border: 2px solid #fa4251;
-    border-radius: .5rem;
+    border-radius: .25rem;
+    color: #555;
     margin: 1rem;
     padding: .5rem;
     width: 50%;
+
+    &::placeholder {
+      color: #555;
+    }
   }
 
   select {
     background-color: #fff;
     border: 2px solid #fa4251;
-    border-radius: .5rem;
+    border-radius: .25rem;
+    color: #555;
     margin: 1rem;
     padding: .5rem;
     width: 50%;
