@@ -1,3 +1,5 @@
+import 'dotenv/config';
+
 import express  from 'express';
 import routes from './routes';
 
@@ -8,6 +10,7 @@ class App{
     this.middlewares();
     this.routes();
   }
+
 
   middlewares() {
     this.server.use(express.json());
