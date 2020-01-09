@@ -1,5 +1,5 @@
 import * as Yup from 'yup';
-import Client from '../models/ClientSchema';
+import Clients from '../models/ClientSchema';
 
 class ClientController {
   async store(req, res) {
@@ -14,7 +14,7 @@ class ClientController {
       return res.status(400).json({ error: 'Validation failed' });
     }
 
-    const clientExists = await Client.findOne({
+    const clientExists = await Clients.findOne({
       where: { email: req.body.email },
     });
 
@@ -22,12 +22,12 @@ class ClientController {
       return res.status(400).json({ error: 'Client already exists' });
     }
 
-    const { name, email } = await Client.create(req.body);
+    const { name, email } = await Clients.create(req.body);
     return res.json({ name, email });
   }
 
   async index(req, res) {
-    const name = await Client.find();
+    const name = await Clients.find();
     return res.json(name);
   }
 }
