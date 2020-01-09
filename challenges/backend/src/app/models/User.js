@@ -6,12 +6,18 @@ class User extends Model {
       {
         name: Sequelize.STRING,
         email: Sequelize.STRING,
-        price: Sequelize.FLOAT,
       },
       {
         sequelize,
       }
     );
+  }
+
+  static associate(models) {
+    this.hasMany(models.Pagamento, {
+      foreignKey: 'user_id',
+      as: 'pagamentos',
+    });
   }
 }
 

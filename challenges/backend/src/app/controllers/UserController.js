@@ -1,4 +1,5 @@
 import User from '../models/User';
+import Pagamento from '../models/Pagamento';
 
 class UserController {
   async store(req, res) {
@@ -8,12 +9,13 @@ class UserController {
   }
 
   async index(req, res) {
-    const users = await User.findAll({
-      attributes: ['id', 'name'],
-      order: ['id'],
-    });
+    const { user_id } = req.params;
 
-    return res.json(users);
+    // const user = await User.findByPk(user_id);
+
+    const pagamentos = await Pagamento.findAll({ where: { user_id } });
+
+    return res.json(pagamentos);
   }
 }
 
