@@ -1,16 +1,9 @@
 import * as Yup from 'yup';
 
 import Transaction from '../models/TransactionSchema';
-import Client from '../schemas/Client';
+import Client from '../models/ClientSchema';
 
 class TransactionController {
-  async index(req, res) {
-    const { name } = req.query;
-    const { service } = req.query;
-
-    res.json({ name, service });
-  }
-
   async store(req, res) {
     const schema = Yup.object().shape({
       email: Yup.string()
@@ -32,7 +25,21 @@ class TransactionController {
       return res.status(400).json({ error: 'Client doesn`t exist' });
     }
 
-    return res.json({ email });
+    const { email_client } = req.body;
+
+    const paymentServices = ['Stripe', 'Paypal', 'Mercado Pago'];
+
+    const payment_service =
+      paymentServices[Math.floor(Math.random() * paymentServices.length)];
+
+    const transaction = await Transaction.create({
+      email_client,
+      payment_service,
+    });
+
+    return res.json({
+      transaction,
+    });
   }
 }
 
