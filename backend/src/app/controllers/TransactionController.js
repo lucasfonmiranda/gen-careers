@@ -7,8 +7,8 @@ class TransactionController {
   async store(req, res) {
     const schema = Yup.object().shape({
       email: Yup.string()
-        .email('Invalid Email')
-        .required('Email is required'),
+        .email()
+        .required(),
     });
 
     if (!(await schema.isValid(req.body))) {
@@ -40,6 +40,11 @@ class TransactionController {
     return res.json({
       transaction,
     });
+  }
+
+  async index(req, res) {
+    const transactions = await Transaction.find();
+    return res.json(transactions);
   }
 }
 
