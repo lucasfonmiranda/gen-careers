@@ -3,6 +3,8 @@ import 'dotenv/config';
 import express from 'express';
 import routes from './routes';
 
+var cors = require('cors');
+
 import './database';
 
 class App {
@@ -16,6 +18,8 @@ class App {
   middlewares() {
     this.server.use(express.json());
   }
+
+  app.use(cors());
 
   routes() {
     this.server.use(routes);
