@@ -6,15 +6,17 @@ import Client from '../models/Client';
 class PaymethodController {
   async store(req, res) {
     const schema = Yup.object().shape({
-      name: Yup.string().required(),
+      email: Yup.string()
+        .email()
+        .required(),
     });
 
-    if (!(await schema.inValid(req.body))) {
+    if (!(await schema.isValid(req.body))) {
       return res.status(400).json({ error: 'Verifique os dados' });
     }
 
     const notClient = await Client.findOne({
-      name: req.body.name,
+      email: req.body.email,
     });
 
     if (!notClient) {
@@ -23,15 +25,15 @@ class PaymethodController {
 
     const { name_client } = req.body;
     const payMethod = ['PicPay', 'MercadoPago', 'PagSeguro', 'PayPal'];
-    const pay_method = payMethod[Math.floor(Math.random() * payMethod.length)];
+    const payment = payMethod[Math.floor(Math.random() * payMethod.length)];
 
-    const payment = await Paymethod.create({
+    const method = await Paymethod.create({
       name_client,
-      pay_method,
+      payment,
     });
 
     return res.json({
-      payment,
+      method,
     });
   }
 
