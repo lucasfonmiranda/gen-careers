@@ -1,22 +1,20 @@
-import Sequelize from 'sequelize';
-
-import User from '../app/models/User';
-import Formapagamento from '../app/models/Formapagamentos';
-import Pagamento from '../app/models/Pagamento';
-
-import databaseConfig from '../config/database';
-
-const models = [User, Formapagamento, Pagamento];
+import mongoose from 'mongoose';
 
 class Database {
   constructor() {
-    this.init();
+    this.mongo();
   }
 
-  init() {
-    this.connection = new Sequelize(databaseConfig);
-
-    models.map(model => model.init(this.connection));
+  mongo() {
+    this.mongoConnection = mongoose.connect(
+      'mongodb://localhost:27017/paymethods',
+      {
+        useNewUrlParser: true,
+        useFindAndModify: true,
+        useUnifiedTopology: true,
+        useCreateIndex: true,
+      }
+    );
   }
 }
 

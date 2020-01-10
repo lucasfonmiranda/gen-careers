@@ -10,11 +10,12 @@ class App {
 
     this.middlewares();
     this.routes();
+    this.server.use(cors());
   }
 
   middlewares() {
-    this.server.use(cors());
     this.server.use(express.json());
+    this.server.use(cors());
   }
 
   routes() {

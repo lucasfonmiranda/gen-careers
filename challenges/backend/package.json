@@ -9,9 +9,8 @@
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.17.1",
-    "pg": "^7.17.0",
-    "pg-hstore": "^2.3.3",
-    "sequelize": "^5.21.3"
+    "mongoose": "^5.8.6",
+    "yup": "^0.28.0"
   },
   "devDependencies": {
     "eslint": "^6.8.0",
@@ -21,7 +20,6 @@
     "eslint-plugin-prettier": "^3.1.2",
     "nodemon": "^2.0.2",
     "prettier": "^1.19.1",
-    "sequelize-cli": "^5.5.1",
     "sucrase": "^3.12.0"
   }
 }
