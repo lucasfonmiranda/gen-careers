@@ -27,6 +27,7 @@ export const SubmitButton = styled.button.attrs(props => ({
   type: 'submit',
   disabled: props.loading,
 }))`
+  display: flex;
   background: #333;
   border: 0;
   padding: 0 15px;
@@ -35,6 +36,12 @@ export const SubmitButton = styled.button.attrs(props => ({
   display: flex;
   justify-content: center;
   align-items: center;
+  color: #fff;
+
+  span {
+    margin-left: 10px;
+  }
+
   &[disabled] {
     cursor: not-allowed;
     opacity: 0.6;

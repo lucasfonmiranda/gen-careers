@@ -7,7 +7,7 @@ export default function header() {
   return (
     <Container>
       <Link to="/">
-        <span>Users</span>
+        <span>Clientes</span>
       </Link>
       <Link to="/paymethod">
         <span>Paymethod</span>

@@ -28,7 +28,7 @@ export default class Home extends Component {
         <List>
         {clients.map(client => (
             <li key={client.id}>
-              Name: <span>{client.name}</span>
+              Cliente: <span>{client.name}</span>
               Email: <span>{client.email}</span>
             </li>
           ))}
