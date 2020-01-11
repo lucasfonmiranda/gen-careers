@@ -39,7 +39,6 @@ export default class Payment extends Component {
   }
 
   async handleClick(e) {
-    // alert(`Cliente pesquisado: ${this.state.value}`);
     const response = await api.get(`/paymethod`);
     this.setState({
       payments: response.data,
