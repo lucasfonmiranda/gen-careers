@@ -10,5 +10,6 @@ routes.get('/clients', ClientController.index);
 
 routes.post('/paymethod', PaymethodController.store);
 routes.get('/paymethod', PaymethodController.index);
+routes.get('/paymethod/:name_client', PaymethodController.details);
 
 export default routes;

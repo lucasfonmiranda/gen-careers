@@ -41,6 +41,13 @@ class PaymethodController {
     const payment = await Paymethod.find();
     return res.json(payment);
   }
+
+  async details(req, res) {
+    const { name_client } = req.params;
+    const clients = await Paymethod.findOne({ name_client }, { payment: 1 });
+
+    return res.json(clients);
+  }
 }
 
 export default new PaymethodController();

@@ -6,11 +6,11 @@ const PaymethodSchema = new mongoose.Schema(
       type: String,
       allowNull: false,
       required: true,
-      unique: true,
+      unique: false,
     },
     payment: {
       type: String,
-      enum: ['Picpay', 'MercadoPago', 'PagSeguro', 'Paypal'],
+      enum: ['PicPay', 'MercadoPago', 'PagSeguro', 'PayPal'],
       required: true,
     },
   },
