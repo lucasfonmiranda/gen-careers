@@ -24,3 +24,4 @@ You will have to build a REST API (Javascript and Nodejs are the preferrable lan
 - Docker;
 - NoSQL;
 - [Karma commit](http://karma-runner.github.io/4.0/dev/git-commit-msg.html); 
+- [Firebase](https://firebase.google.com/docs/web/setup);
