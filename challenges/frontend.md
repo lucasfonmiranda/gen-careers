@@ -13,3 +13,6 @@ You will have to build a simple CRUD app (Using react js) that will show all tra
 ## Better if
 - Hooks
 - TDD
+ 
+## Observation
+Please don't make the filter using email, remember it's more easy we now the client name.
